@@ -6,14 +6,14 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 16:12:24 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/10 21:32:20 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/10 23:28:23 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libft/libft.h"
+# include "../../libft/libft.h"
 # include <fcntl.h>
 # include <mlx.h>
 # include <stdio.h>

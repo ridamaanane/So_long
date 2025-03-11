@@ -6,11 +6,11 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 20:57:22 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/10 23:51:48 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/11 01:29:18 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	count_lines(char *file_path)
 {
@@ -95,5 +95,3 @@ char	**read_map(t_game *game, char *file_path)
 	check_path(game);
 	return (close(fd), map);
 }
-
-//return (map);
