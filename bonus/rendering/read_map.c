@@ -6,7 +6,7 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 20:57:22 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/11 01:29:18 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/12 02:56:03 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ char	**alloc_map(int fd, int nbr_lines)
 	if (!map)
 		return (NULL);
 	line = get_next_line(fd);
+	if (!line)
+	{
+		free(map);
+		exit(1);
+	}
 	i = 0;
 	while (line)
 	{

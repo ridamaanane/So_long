@@ -6,7 +6,7 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:28:03 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/11 03:26:19 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/12 02:44:17 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_game(t_game *game)
 	game->collected = 0;
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, game->map_width * TILE_SIZE,
-			game->map_height * TILE_SIZE, "Sheep Protector");
+			game->map_height * TILE_SIZE + 100, "Sheep Protector");
 }
 
 void	check_images(t_game *game)
@@ -36,7 +36,6 @@ void	check_images(t_game *game)
 	)
 	{
 		write(2, "Error:\nin loading images\n", 26);
-	
 	}
 }
 
@@ -63,11 +62,8 @@ void	load_images(t_game *game)
 	game->enemy_imgs[4] = mlx_xpm_file_to_image(game->mlx, "../../imgs/enemy5.xpm", &width, &height);
 	game->enemy_imgs[5] = mlx_xpm_file_to_image(game->mlx, "../../imgs/enemy6.xpm", &width, &height);
 	game->enemy_current_img = 0;
-	
 	game->counter_img = mlx_xpm_file_to_image(game->mlx, "../../imgs/counter.xpm", &width, &height);
-	
 	game->background_yellow = mlx_xpm_file_to_image(game->mlx, "../../imgs/background_yellow.xpm", &width, &height);
-
 	game->numbers[0] = mlx_xpm_file_to_image(game->mlx , "../../imgs/0.xpm", &width, &height);
 	game->numbers[1] = mlx_xpm_file_to_image(game->mlx , "../../imgs/1.xpm", &width, &height);
 	game->numbers[2] = mlx_xpm_file_to_image(game->mlx , "../../imgs/2.xpm", &width, &height);
@@ -100,20 +96,8 @@ void	setup_map(t_game *game, char *file_path)
 		}
 		y++;
 	}
-
 }
 
-void init_header(t_game *game)
-{
-	mlx_put_image_to_window(game->mlx, game->win, game->counter_img, 0 , 0);
-	int dx = 600;
-	int map_width_in_pixels = game->map_width * TILE_SIZE;
-	while (dx < map_width_in_pixels)
-	{
-		mlx_put_image_to_window(game->mlx, game->win, game->background_yellow, dx , 0);
-		dx += 600;
-	}
-}
 int	main(int ac, char **av)
 {
 	t_game	game;
@@ -123,12 +107,11 @@ int	main(int ac, char **av)
 	setup_map(&game, av[1]);
 	init_game(&game);
 	load_images(&game);
-
 	check_images(&game);
 	mlx_hook(game.win, 02, (1L << 0), key_hook, &game);
 	mlx_hook(game.win, 17, 0, free_leaks_mlx, &game);
 	mlx_loop_hook(game.mlx, animate_enemy, &game);
-	init_header(&game);
+	background_yellow(&game);
 	display_map(&game);
 	mlx_loop(game.mlx);
 	return (0);

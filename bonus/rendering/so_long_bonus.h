@@ -6,7 +6,7 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 16:12:24 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/11 03:15:44 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/12 01:14:54 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ void		free_map(char **map);
 //bonus
 void    rander_steps_counter(t_game *game);
 int animate_enemy(t_game *game);
+void background_yellow(t_game *game);
 
 
 #endif

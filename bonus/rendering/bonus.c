@@ -6,37 +6,38 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 00:59:33 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/11 03:25:08 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/11 16:16:54 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void    rander_steps_counter(t_game *game)
+void	rander_steps_counter(t_game *game)
 {
-	int steps;
+	int	steps;
 
 	steps = game->key_count;
-	ft_printf("\n%d", game->key_count);
-	mlx_put_image_to_window(game->mlx, game->win, game->numbers[(steps / 10000) % 10], 250, 15);
-	mlx_put_image_to_window(game->mlx, game->win, game->numbers[(steps / 1000) % 10], 305, 15);
-	mlx_put_image_to_window(game->mlx, game->win, game->numbers[(steps / 100) % 10], 357, 15);
-	mlx_put_image_to_window(game->mlx, game->win, game->numbers[(steps / 10) % 10], 413, 15);
-	mlx_put_image_to_window(game->mlx, game->win, game->numbers[steps % 10], 469, 15);
-	ft_printf("...................\n");
+	mlx_put_image_to_window(game->mlx, game->win, game->numbers[(steps / 10000)
+		% 10], 250, 15);
+	mlx_put_image_to_window(game->mlx, game->win, game->numbers[(steps / 1000)
+		% 10], 305, 15);
+	mlx_put_image_to_window(game->mlx, game->win, game->numbers[(steps / 100)
+		% 10], 357, 15);
+	mlx_put_image_to_window(game->mlx, game->win, game->numbers[(steps / 10)
+		% 10], 413, 15);
+	mlx_put_image_to_window(game->mlx, game->win, game->numbers[steps % 10],
+		469, 15);
 }
-int animate_enemy(t_game *game)
-{
-	static unsigned int frame_counter;
-    int	x;
-    int	y;
-	
-	frame_counter++;
 
+int	animate_enemy(t_game *game)
+{
+	static unsigned int	frame_counter;
+
+	int (x), (y);
+	frame_counter++;
 	if (frame_counter % 15000 != 0)
 		return (0);
-
-	game->enemy_current_img ++;
+	game->enemy_current_img++;
 	if (game->enemy_current_img >= 6)
 		game->enemy_current_img = 0;
 	y = 0;
@@ -46,10 +47,28 @@ int animate_enemy(t_game *game)
 		while (x < game->map_width)
 		{
 			if (game->map[y][x] == 'K')
-				mlx_put_image_to_window(game->mlx, game->win, game->enemy_imgs[game->enemy_current_img], x * TILE_SIZE , y * TILE_SIZE + 100);
+				mlx_put_image_to_window(game->mlx, game->win,
+					game->enemy_imgs[game->enemy_current_img], x * TILE_SIZE, y
+					* TILE_SIZE + 100);
 			x++;
 		}
 		y++;
 	}
 	return (0);
+}
+
+void	background_yellow(t_game *game)
+{
+	int	dx;
+	int	map_width_in_pixels;
+
+	mlx_put_image_to_window(game->mlx, game->win, game->counter_img, 0, 0);
+	map_width_in_pixels = game->map_width * TILE_SIZE;
+	dx = 600;
+	while (dx < map_width_in_pixels)
+	{
+		mlx_put_image_to_window(game->mlx, game->win, game->background_yellow,
+			dx, 0);
+		dx += 600;
+	}
 }

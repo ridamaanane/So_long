@@ -6,7 +6,7 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:19:26 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/11 03:38:40 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/12 02:42:48 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	handle_player_movement(t_game *game, int new_position_y,
 		game->player_y = new_position_y;
 		game->key_count++;
 		rander_steps_counter(game);
+		ft_printf("keys pressed: %d\n", game->key_count);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:16:26 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/11 03:23:19 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/11 15:45:34 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,10 @@ void	put_img_to_win(t_game *game, int x, int y)
 		mlx_put_image_to_window(game->mlx, game->win, game->collectible_img, x
 			* TILE_SIZE, y * TILE_SIZE + 100);
 	else if (game->map[y][x] == 'K')
-	{
-		
 		mlx_put_image_to_window(game->mlx, game->win, game->enemy_imgs[game->enemy_current_img], x * TILE_SIZE , y * TILE_SIZE + 100);
-	}
 	else if (game->map[y][x] != 'E')
-	{
 		mlx_put_image_to_window(game->mlx, game->win, game->floor_img, x
 			* TILE_SIZE, y * TILE_SIZE + 100);
-	}
 }
 
 void	display_map(t_game *game)
