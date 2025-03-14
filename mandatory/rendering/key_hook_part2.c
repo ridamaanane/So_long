@@ -6,11 +6,11 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:27:34 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/10 21:34:44 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/13 00:48:25 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int	key_hook(int keycode, t_game *game)
 {

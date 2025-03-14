@@ -6,27 +6,31 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:16:26 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 23:33:00 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/13 00:51:28 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 void	put_img_to_win(t_game *game, int x, int y)
 {
 	if (game->map[y][x] == '1')
 		mlx_put_image_to_window(game->mlx, game->win, game->wall_img, x
-			* TILE_SIZE, y * TILE_SIZE);
+			* TILE_SIZE, y * TILE_SIZE + 100);
 	else if (game->map[y][x] == 'P')
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->player_imgs[game->player_current_img], x * TILE_SIZE, y
-			* TILE_SIZE);
+			* TILE_SIZE + 100);
 	else if (game->map[y][x] == 'C')
 		mlx_put_image_to_window(game->mlx, game->win, game->collectible_img, x
-			* TILE_SIZE, y * TILE_SIZE);
+			* TILE_SIZE, y * TILE_SIZE + 100);
+	else if (game->map[y][x] == 'K')
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->enemy_imgs[game->enemy_current_img], x * TILE_SIZE, y
+			* TILE_SIZE + 100);
 	else if (game->map[y][x] != 'E')
 		mlx_put_image_to_window(game->mlx, game->win, game->floor_img, x
-			* TILE_SIZE, y * TILE_SIZE);
+			* TILE_SIZE, y * TILE_SIZE + 100);
 }
 
 void	display_map(t_game *game)
@@ -34,12 +38,12 @@ void	display_map(t_game *game)
 	int	x;
 	int	y;
 
+	y = 0;
 	if (game->map[game->pos_exit_y][game->pos_exit_x] != 'P')
 		game->map[game->pos_exit_y][game->pos_exit_x] = 'E';
 	mlx_put_image_to_window(game->mlx, game->win,
 		game->door_imgs[game->door_current_img], game->pos_exit_x * TILE_SIZE,
-		game->pos_exit_y * TILE_SIZE);
-	y = 0;
+		game->pos_exit_y * TILE_SIZE + 100);
 	while (y < game->map_height)
 	{
 		x = 0;

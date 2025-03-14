@@ -6,11 +6,11 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:35:24 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 00:49:00 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/13 00:51:57 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {

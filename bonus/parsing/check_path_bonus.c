@@ -6,11 +6,11 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:54:35 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 00:49:12 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/13 00:52:07 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 char	**duplicate_map(t_game *game)
 {
@@ -34,7 +34,7 @@ char	**duplicate_map(t_game *game)
 
 void	ft_flood_fill(char **map, int x, int y)
 {
-	if (map[y][x] == 'V' || map[y][x] == '1')
+	if (map[y][x] == 'V' || map[y][x] == '1' || map[y][x] == 'K')
 		return ;
 	map[y][x] = 'V';
 	ft_flood_fill(map, x + 1, y);

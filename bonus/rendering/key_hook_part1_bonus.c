@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_hook_part1.c                                   :+:      :+:    :+:   */
+/*   key_hook_part1_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:19:26 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 00:48:16 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/13 21:28:58 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 void	handle_player_movement(t_game *game, int new_position_y,
 		int new_position_x)
@@ -22,17 +22,25 @@ void	handle_player_movement(t_game *game, int new_position_y,
 		game->player_x = new_position_x;
 		game->player_y = new_position_y;
 		game->key_count++;
+		rander_steps_counter(game);
 		ft_printf("keys pressed: %d\n", game->key_count);
 	}
 }
 
-int	handle_game_over(int keycode, t_game *game)
+int	handle_game_over(int keycode, t_game *game, int new_position_y,
+		int new_position_x)
 {
 	if (keycode == ESC_KEY)
+		free_leaks_mlx(game, "Game exited successfully!\n");
+	if (game->map[new_position_y][new_position_x] == 'K')
 	{
-		free_leaks_mlx(game);
-		ft_printf("Game exited successfully!\n");
-		exit(0);
+		ft_printf("-------------------------------------------------\n");
+		ft_printf("|      ❌❌❌  You lost! Game closing  ❌❌❌   |\n");
+		ft_printf("|     You failed to reach the exit...           |\n");
+		ft_printf("|     Better luck next time!                    |\n");
+		ft_printf("|     💡 Try again and improve your strategy!   |\n");
+		ft_printf("-------------------------------------------------\n");
+		free_leaks_mlx(game, "\n");
 	}
 	return (0);
 }
@@ -64,8 +72,7 @@ void	handle_exit_door(t_game *game, int new_position_y, int new_position_x)
 			ft_printf("|       🏆 Can you beat your own record?  %d     |\n",
 				game->key_count);
 			ft_printf("-------------------------------------------------\n");
-			free_leaks_mlx(game);
-			exit(0);
+			free_leaks_mlx(game, "");
 		}
 		else if (game->collected != game->total_collectibles)
 			write(1, "You need to eat all collectibles first!!...\n", 45);

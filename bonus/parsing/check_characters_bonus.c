@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_characters.c                                 :+:      :+:    :+:   */
+/*   check_characters_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 17:40:09 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 00:49:06 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/13 04:32:38 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 int	is_valid_char(char c)
 {
-	return (c == '0' || c == '1' || c == 'C' || c == 'E' || c == 'P');
+	return (c == '0' || c == '1' || c == 'C' || c == 'E' || c == 'P'
+		|| c == 'K');
 }
 
 int	validate_map_structure(t_game *game, int width, int height)

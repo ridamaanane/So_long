@@ -6,11 +6,11 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:56:22 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 00:49:22 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/13 00:52:18 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 int	check_walls(t_game *game, int width, int height)
 {

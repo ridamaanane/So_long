@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_mandatory.c                                   :+:      :+:    :+:   */
+/*   main_bonus_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:28:03 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 21:15:38 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/13 21:12:48 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 void	init_game(t_game *game)
 {
@@ -18,15 +18,23 @@ void	init_game(t_game *game)
 	game->collected = 0;
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, game->map_width * TILE_SIZE,
-			game->map_height * TILE_SIZE, "Sheep Protector");
+			game->map_height * TILE_SIZE + 100, "Sheep Protector");
 }
 
 void	check_images(t_game *game)
 {
-	if (!game->wall_img || !game->collectible_img
-		|| !game->floor_img | !game->player_imgs[0] || !game->player_imgs[1]
+	if (!game->wall_img || !game->collectible_img || !game->floor_img
+		|| !game->player_imgs[0] || !game->player_imgs[1]
+		|| !game->player_imgs[2] || !game->player_imgs[1]
 		|| !game->player_imgs[2] || !game->player_imgs[3] || !game->door_imgs[0]
-		|| !game->door_imgs[1])
+		|| !game->door_imgs[1] || !game->enemy_imgs[0] || !game->enemy_imgs[1]
+		|| !game->enemy_imgs[2] || !game->enemy_imgs[3] || !game->enemy_imgs[4]
+		|| !game->enemy_imgs[5] || !game->player_imgs[3] || !game->counter_img
+		|| !game->background_yellow || !game->counter_img
+		|| !game->collectible_img || !game->numbers[0] || !game->numbers[1]
+		|| !game->numbers[2] || !game->numbers[3] || !game->numbers[4]
+		|| !game->numbers[5] || !game->numbers[6] || !game->numbers[7]
+		|| !game->numbers[8] || !game->numbers[9])
 	{
 		write(2, "Error\nin loading images\n", 26);
 		exit(1);
@@ -35,11 +43,9 @@ void	check_images(t_game *game)
 
 void	load_images(t_game *game)
 {
-	int	width;
-	int	height;
-
-	game->floor_img = mlx_xpm_file_to_image(game->mlx, "textures/floor.xpm",
-			&width, &height);
+	int (width), (height);
+	game->floor_img = mlx_xpm_file_to_image(game->mlx,
+			"textures/floor.xpm", &width, &height);
 	game->wall_img = mlx_xpm_file_to_image(game->mlx, "textures/wall.xpm",
 			&width, &height);
 	game->collectible_img = mlx_xpm_file_to_image(game->mlx,
@@ -58,6 +64,8 @@ void	load_images(t_game *game)
 	game->door_imgs[1] = mlx_xpm_file_to_image(game->mlx,
 			"textures/open_door.xpm", &width, &height);
 	game->door_current_img = 0;
+	load_images_bonus(game, width, height);
+	load_more_images_bonus(game, width, height);
 }
 
 void	setup_map(t_game *game, char *file_path)
@@ -93,7 +101,9 @@ int	main(int ac, char **av)
 	load_images(&game);
 	check_images(&game);
 	mlx_hook(game.win, 02, (1L << 0), key_hook, &game);
-	mlx_hook(game.win, 17, 0, free_leaks_mlx, &game);
+	mlx_hook(game.win, 17, 0, destroy_callback, &game);
+	mlx_loop_hook(game.mlx, animate_enemy, &game);
+	background_yellow(&game);
 	display_map(&game);
 	mlx_loop(game.mlx);
 	return (0);

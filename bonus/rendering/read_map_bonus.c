@@ -6,11 +6,11 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 20:57:22 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 21:20:05 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/13 00:51:47 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 int	count_lines(char *file_path)
 {
@@ -46,6 +46,12 @@ char	**alloc_map(int fd, int nbr_lines)
 	if (!map)
 		return (NULL);
 	line = get_next_line(fd);
+	if (!line)
+	{
+		free(map);
+		ft_printf("Error\nYou need to provide a valid map file.\n");
+		exit(1);
+	}
 	i = 0;
 	while (line)
 	{
