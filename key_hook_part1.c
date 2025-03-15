@@ -6,11 +6,11 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:19:26 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 00:48:16 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/15 00:22:42 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	handle_player_movement(t_game *game, int new_position_y,
 		int new_position_x)
@@ -29,11 +29,7 @@ void	handle_player_movement(t_game *game, int new_position_y,
 int	handle_game_over(int keycode, t_game *game)
 {
 	if (keycode == ESC_KEY)
-	{
-		free_leaks_mlx(game);
-		ft_printf("Game exited successfully!\n");
-		exit(0);
-	}
+		free_leaks_mlx(game, "Game exited successfully!\n");
 	return (0);
 }
 
@@ -64,7 +60,7 @@ void	handle_exit_door(t_game *game, int new_position_y, int new_position_x)
 			ft_printf("|       🏆 Can you beat your own record?  %d     |\n",
 				game->key_count);
 			ft_printf("-------------------------------------------------\n");
-			free_leaks_mlx(game);
+			free_leaks_mlx(game, "\n");
 			exit(0);
 		}
 		else if (game->collected != game->total_collectibles)

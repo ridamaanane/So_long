@@ -6,11 +6,11 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:28:03 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 21:15:38 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/15 00:44:29 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	init_game(t_game *game)
 {
@@ -28,7 +28,7 @@ void	check_images(t_game *game)
 		|| !game->player_imgs[2] || !game->player_imgs[3] || !game->door_imgs[0]
 		|| !game->door_imgs[1])
 	{
-		write(2, "Error\nin loading images\n", 26);
+		write(2, "Error\nin loading images\n", 25);
 		exit(1);
 	}
 }
@@ -93,7 +93,7 @@ int	main(int ac, char **av)
 	load_images(&game);
 	check_images(&game);
 	mlx_hook(game.win, 02, (1L << 0), key_hook, &game);
-	mlx_hook(game.win, 17, 0, free_leaks_mlx, &game);
+	mlx_hook(game.win, 17, 0, destroy_callback, &game);
 	display_map(&game);
 	mlx_loop(game.mlx);
 	return (0);

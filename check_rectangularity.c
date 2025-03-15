@@ -6,11 +6,11 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:55:51 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 00:49:16 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/15 00:22:26 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	check_rectangular(t_game *game, int width, int height)
 {

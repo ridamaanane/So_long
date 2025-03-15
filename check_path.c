@@ -6,11 +6,11 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:54:35 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 00:49:12 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/15 00:22:23 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 char	**duplicate_map(t_game *game)
 {

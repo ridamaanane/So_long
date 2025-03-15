@@ -6,7 +6,7 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:19:26 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 21:28:58 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/14 23:50:42 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	handle_player_movement(t_game *game, int new_position_y,
 		game->player_y = new_position_y;
 		game->key_count++;
 		rander_steps_counter(game);
-		ft_printf("keys pressed: %d\n", game->key_count);
 	}
 }
 
@@ -69,7 +68,7 @@ void	handle_exit_door(t_game *game, int new_position_y, int new_position_x)
 			ft_printf("|    🎉🎉🎉  Congratulations!!!!!  🎉🎉🎉       |\n");
 			ft_printf("|    You found all collectibles and exit.       |\n");
 			ft_printf("|        ✓✓✓✓✓✓✓✓ You won! ✓✓✓✓✓✓✓✓             |\n");
-			ft_printf("|       🏆 Can you beat your own record?  %d     |\n",
+			ft_printf("|       🏆 Can you beat your own record?  %d    |\n",
 				game->key_count);
 			ft_printf("-------------------------------------------------\n");
 			free_leaks_mlx(game, "");

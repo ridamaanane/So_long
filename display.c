@@ -6,11 +6,11 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:16:26 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 23:33:00 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/15 00:22:34 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 void	put_img_to_win(t_game *game, int x, int y)
 {

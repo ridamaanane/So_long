@@ -6,14 +6,14 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 16:12:24 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 00:50:27 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/15 00:31:39 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libft/libft.h"
+# include "libft/libft.h"
 # include <fcntl.h>
 # include <mlx.h>
 # include <stdio.h>
@@ -22,7 +22,6 @@
 
 # define TILE_SIZE 64
 # define ESC_KEY 65307
-# define ESC 65307
 # define UP 65362
 # define DOWN 65364
 # define LEFT 65361
@@ -72,6 +71,7 @@ void		update_player_direction(int keycode, t_game *game,
 
 ////key_hook_part2
 int			key_hook(int keycode, t_game *game);
+int			destroy_callback(t_game *game);
 
 // read_map
 char		**read_map(t_game *game, char *file_path);
@@ -96,7 +96,7 @@ int			check_walls(t_game *game, int width, int height);
 void		check_path(t_game *game);
 
 // free_leaks
-int			free_leaks_mlx(t_game *game);
+int			free_leaks_mlx(t_game *game, char *msg);
 void		free_map(char **map);
 
 #endif

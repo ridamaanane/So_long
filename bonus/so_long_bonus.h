@@ -6,7 +6,7 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 16:12:24 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 00:53:28 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/14 23:46:47 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 
 # define TILE_SIZE 64
 # define ESC_KEY 65307
-# define ESC 65307
 # define UP 65362
 # define DOWN 65364
 # define LEFT 65361

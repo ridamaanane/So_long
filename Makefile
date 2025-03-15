@@ -4,10 +4,10 @@ LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 CMLX = -lmlx -lXext -lX11
 
-SRC = mandatory/rendering/display.c mandatory/rendering/key_hook_part1.c mandatory/rendering/key_hook_part2.c \
-      mandatory/rendering/main_mandatory.c mandatory/rendering/read_map.c \
-      mandatory/parsing/check_ber.c mandatory/parsing/check_characters.c mandatory/parsing/check_rectangularity.c \
-      mandatory/parsing/check_walls.c mandatory/parsing/check_path.c mandatory/parsing/free_leaks.c
+SRC = display.c key_hook_part1.c key_hook_part2.c \
+      main_mandatory.c read_map.c \
+      check_ber.c check_characters.c check_rectangularity.c \
+      check_walls.c check_path.c free_leaks.c
 
 SRCB = bonus/rendering/display_bonus.c bonus/rendering/key_hook_part1_bonus.c bonus/rendering/key_hook_part2_bonus.c \
        bonus/rendering/main_bonus_bonus.c bonus/rendering/read_map_bonus.c \

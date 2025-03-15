@@ -6,13 +6,13 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:58:44 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 00:49:26 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/15 00:22:37 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
-int	free_leaks_mlx(t_game *game)
+int	free_leaks_mlx(t_game *game, char *msg)
 {
 	int	i;
 
@@ -35,7 +35,8 @@ int	free_leaks_mlx(t_game *game)
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
 	free_map(game->map);
-	exit(1);
+	write(1, msg, ft_strlen(msg));
+	exit(0);
 }
 
 void	free_map(char **map)

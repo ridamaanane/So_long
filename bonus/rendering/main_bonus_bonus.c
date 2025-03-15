@@ -6,7 +6,7 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:28:03 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 21:12:48 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/15 00:45:03 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	check_images(t_game *game)
 		|| !game->numbers[5] || !game->numbers[6] || !game->numbers[7]
 		|| !game->numbers[8] || !game->numbers[9])
 	{
-		write(2, "Error\nin loading images\n", 26);
+		write(2, "Error\nin loading images\n", 25);
 		exit(1);
 	}
 }

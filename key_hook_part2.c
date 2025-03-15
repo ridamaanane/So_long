@@ -6,11 +6,11 @@
 /*   By: rmaanane <rmaanane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:27:34 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/03/13 00:48:25 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/03/15 00:22:45 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 int	key_hook(int keycode, t_game *game)
 {
@@ -26,4 +26,9 @@ int	key_hook(int keycode, t_game *game)
 	handle_player_movement(game, new_position_y, new_position_x);
 	display_map(game);
 	return (0);
+}
+
+int	destroy_callback(t_game *game)
+{
+	return (free_leaks_mlx(game, "X detected\n"));
 }
